@@ -1,0 +1,33 @@
+<div class="container-fluid" [ngClass]="{'print_view': isPrint}">
+
+dark theme code 
+
+  <div class="text-right">
+   <div class="custom-control custom-switch">
+      <input type="checkbox"
+            class="custom-control-input"
+            id="darkMode"
+            [checked]="isThemeDark"
+
+            (change)="toggleDarkTheme($event)">
+        <label class="custom-control-label" for="darkMode"></label>
+        <a class="text-capitalize">Dark Mode</a>
+
+    </div>
+  </div>
+  
+  
+  dark theme code end
+  
+  
+  <div [className]="currentView">
+    <crain-header [menuList]="menuList" [isBetaView]="!!currentView" [header]="header"></crain-header>
+    <crain-loader></crain-loader>
+    <crain-tooltip></crain-tooltip>
+    <crain-notification></crain-notification>
+    <div class="body_wrapper">
+    <router-outlet></router-outlet>
+  </div>
+  <crain-footer [footer]="footer" *ngIf="!isPrint && !isReport"></crain-footer>
+  </div>
+</div>
